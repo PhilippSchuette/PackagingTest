@@ -67,8 +67,7 @@ We will also implement code coverage using
 ToDo
 ----
 
-  0. Install all needed packages, etc. with *Pipenv*! Also, populate Makefile,
-     CODE_OF_CONDUCT, LICENSE, CONTRIBUTING
+  0. Install all needed packages, etc. with *Pipenv*! Also, populate Makefile
   1. Create some dummy code
   2. Initialize and build documentation, add description here
   3. Create stubs for custom classes and functions
