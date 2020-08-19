@@ -41,7 +41,42 @@ The documentation for the project is build with the
 `Sphinx <https://www.sphinx-doc.org/en/master/usage/extensions/autodoc.html>`_
 *autodoc* utility. First, the general documentation structure was generated using
 
-  ``$ sphinx-quickstart``
+.. code:: bash
+
+  $ sphinx-quickstart
+
+You can generate documentation by simply typing
+
+.. code:: bash
+
+  $ make <builder>
+
+where the two most commonly used builders are *html* and *latexpdf*. Omitting the
+builder provides a list of available options (You can delete the Windows specific
+make.bat file that is also automatically generated). You could also run something
+like
+
+.. code:: bash
+
+  $ sphinx-build -b <builder> ./docs/ ./docs/
+
+allowing you to specify the source and build directories manually (they are hard
+coded in the Makefile). For some reason, latexpdf only works with the -M flag but
+not with -b.
+
+Now add **"sphinx.ext.autodoc"** to the extensions in your *conf.py* file. With the
+directory structure as present in this project, you need to add the path to the
+python modules relative to the conf.py file (i.e. ../py_src) to the path in your conf.py
+as the autodoc directives won't work otherwise. You also have to include any
+subdirectory of py_src separately.
+
+The general logic goes as follows: For any Python module in py_src, add an associated
+.rst file in docs containing at least a heading and an autodoc directive referencing
+the module. The position of the .rst file in the toctree of index.rst determines the
+position on the resulting documentation.
+
+.. note::
+  **index.rst contains examples on how to include LaTeX using the raw directive!**
 
 ----------
 MyPy Stubs
@@ -76,5 +111,5 @@ ToDo
   5. Implement continuous integration with Travis CI, implement coverage reports
      with `pytest-cov <https://pytest-cov.readthedocs.io/en/latest/reporting.html>`_
      and codecov
-  6. Make project pip-installable
+  6. Make project pip-installable with *wheels* (and *setuptools*?)
   7. Package project with *Docker*
