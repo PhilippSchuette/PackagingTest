@@ -44,7 +44,7 @@ Indices and tables
 An Example Graphic
 ==================
 
-.. image:: ../_static/images/pic1.png
+.. image:: ./_static/images/pic1.png
    :align: center
 
 .. raw:: latex
