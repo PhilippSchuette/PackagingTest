@@ -11,4 +11,15 @@ def foo():
     :type: None
     :rtype: None
     """
-    pass
+    print(__name__)
+
+
+def bar():
+    """
+    Also a discription, this time with some basic **rst** syntax.
+    """
+    print(__package__)
+
+
+def foo_bar():
+    print(__file__)

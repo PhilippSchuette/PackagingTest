@@ -5,3 +5,15 @@
 # standard library modules first
 import math
 import os
+
+
+def func1():
+    print(__name__)
+
+
+def func2():
+    print(math.pi)
+
+
+def func3():
+    print(os.path)

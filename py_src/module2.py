@@ -3,5 +3,5 @@
 # implementations according to the ground rules set out in the README.
 
 
-def func():
-    pass
+def func1():
+    print(__name__)

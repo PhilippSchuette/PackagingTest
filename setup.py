@@ -16,14 +16,13 @@ setup(
     author="Philipp Schuette",
     author_email="pschuet2@math.upb.de",
     license="MIT",
+    py_modules=["module1", "module2", "module3"],
     package_dir={"": "py_src"},
-    packages=find_packages(
-        where="./py_src", exclude=["tests.*"]
-    ),
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
     ],
+    python_requires=">=3.6",
     install_requires=[
         "matplotlib",
         "numpy"
