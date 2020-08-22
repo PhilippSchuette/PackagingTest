@@ -5,7 +5,7 @@ before_install:
     - cd py_src
 install:
     - pip3 install -r requirements.txt
-    - pip3 install .
+    - pip3 install ..
 script:
     - pytest ../test
     - mypy --config-file ../setup.cfg ../py_src
