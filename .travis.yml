@@ -15,8 +15,9 @@ script:
 after_success:
     - cd ..
     - export CODECOV_TOKEN="b3233ad7-de29-4752-b9cb-5dfcd0d9718c"
-    - bash <(curl -s https://codecov.io/bash) -f ./test.xml -F py_src
-    - bash <(curl -s https://codecov.io/bash) -f ./test.xml -F .
+    - pip3 install pytest-cov
+    - py.test --cov-report=xml --cov=py_src/ test/
+    - bash <(curl -s https://codecov.io/bash)
 
 notifications:
     email: false
