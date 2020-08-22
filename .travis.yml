@@ -12,10 +12,9 @@ script:
     - export MYPYPATH='./stubs'
     - mypy ../py_src
 after_success:
-    - cd ..
     - export CODECOV_TOKEN="b3233ad7-de29-4752-b9cb-5dfcd0d9718c"
     - python3 -m pip install pytest-cov
-    - py.test --cov-report=xml --cov
+    - py.test --cov-report=xml --cov=. ../test
     - bash <(curl -s https://codecov.io/bash)
 
 notifications:
