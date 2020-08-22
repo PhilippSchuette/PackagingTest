@@ -9,6 +9,9 @@ How to Package A Python3 Project
 Introduction
 ------------
 
+[![Build Status](https://travis-ci.com/PhilippSchuette/PackagingTest.svg?token=Yiib7xzboAJu8y3Dk8Qo&branch=master)]
+![language python](https://img.shields.io/badge/Language-Python-blue.svg)
+
 This package is a simple experiment involving the structural layout,
 documentation, typing and testing facilities of an actual project like the
 resonance related code in ``my_sage_repo``. All packages etc. should be installed
