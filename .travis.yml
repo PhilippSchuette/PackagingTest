@@ -9,7 +9,6 @@ install:
     - pip3 install -r requirements.txt
     - pip3 install ..
 script:
-    - pytest --junitxml=../test.xml ../test
     - export MYPYPATH='./stubs'
     - mypy ../py_src
 after_success:
