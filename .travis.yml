@@ -8,7 +8,7 @@ install:
     - pip3 install ..
 script:
     - pytest ../test
-    - mypy --config-file ../setup.cfg ../py_src
+    - mypy ../py_src
 
 notifications:
     email: false
