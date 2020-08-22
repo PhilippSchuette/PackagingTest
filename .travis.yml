@@ -1,3 +1,5 @@
+os: linux
+dist: bionic
 language: python
 python:
     - "3.6"  # current default on Travis CI
@@ -8,6 +10,7 @@ install:
     - pip3 install ..
 script:
     - pytest ../test
+    - export MYPYPATH='./stubs'
     - mypy ../py_src
 
 notifications:
