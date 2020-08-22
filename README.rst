@@ -8,9 +8,11 @@ How to Package A Python3 Project
 ------------
 Introduction
 ------------
+.. image:: https://travis-ci.com/PhilippSchuette/PackagingTest.svg?token=Yiib7xzboAJu8y3Dk8Qo&branch=master
+   :target: https://travis-ci.com/PhilippSchuette/PackagingTest
 
-[![Build Status](https://travis-ci.com/PhilippSchuette/PackagingTest.svg?token=Yiib7xzboAJu8y3Dk8Qo&branch=master)]
-![language python](https://img.shields.io/badge/Language-Python-blue.svg)
+.. image:: https://img.shields.io/badge/Language-Python-blue.svg
+   :target: https://www.python.org/
 
 This package is a simple experiment involving the structural layout,
 documentation, typing and testing facilities of an actual project like the
