@@ -9,9 +9,10 @@ install:
     - pip3 install -r requirements.txt
     - pip3 install ..
 script:
-    - pytest ../test
+    - pytest --junitxml=../test/test.xml ../test
     - export MYPYPATH='./stubs'
     - mypy ../py_src
+    - bash <(curl -s https://codecov.io/bash)
 
 notifications:
     email: false

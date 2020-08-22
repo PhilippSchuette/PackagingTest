@@ -36,6 +36,7 @@ clean:
 	@rm -rf docs/latex
 	@rm -rf docs/html
 	@mv ./docs/latex/packagingtest.pdf ./docs/main.pdf 2>>/dev/null || echo "no updated docs available"
+	@rm test/*.xml 2>>/dev/null || echo "no .xml file in test directory"
 
 .PHONY: help doc test lint clean Makefile
 
