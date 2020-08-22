@@ -1,0 +1,13 @@
+language: python
+python:
+    - "3.6"  # current default on Travis CI
+before_install:
+    - cd py_src
+install:
+    - pip3 install -r requirements.txt
+script:
+    - pytest ../test
+    - mypy --config-file ../setup.cfg ../py_src
+
+notifications:
+    email: false

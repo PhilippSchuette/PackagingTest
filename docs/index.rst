@@ -20,6 +20,7 @@ Welcome to PackagingTest's documentation!
    module1
    module2
    module3
+   module4
 
 --------------------------------
 

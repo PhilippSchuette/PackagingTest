@@ -12,8 +12,27 @@ def func1():
 
 
 def func2():
-    print(math.pi)
+    return [math.pi, math.pi / 2, math.pi / 4, math.pi / 8]
 
 
 def func3():
     print(os.path)
+
+
+def add(x, y):
+    return x + y
+
+
+def subtract(x, y):
+    return x - y
+
+
+def multiply(x, y):
+    return x * y
+
+
+def divide(x, y):
+    if y != 0:
+        return x / y
+    else:
+        raise ZeroDivisionError

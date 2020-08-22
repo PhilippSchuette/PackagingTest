@@ -1,4 +1,4 @@
-# You can provide further setup options in a setup.cfg configuration file!
+# You can provide further setup options in the setup.cfg configuration file!
 from setuptools import setup, find_packages
 
 version = "v0.0.1"
@@ -16,8 +16,11 @@ setup(
     author="Philipp Schuette",
     author_email="pschuet2@math.upb.de",
     license="MIT",
-    py_modules=["module1", "module2", "module3"],
+    py_modules=["module1", "module2", "module3", "sub_module.module4"],
     package_dir={"": "py_src"},
+    package_data={
+        'py_src': ['py.typed']
+    },
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",

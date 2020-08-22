@@ -78,6 +78,10 @@ position on the resulting documentation.
 .. note::
   **index.rst contains examples on how to include LaTeX using the raw directive!**
 
+With *Makefile* the workflow is very simple: Type **make <builder>** and then **make clean**
+to obtain complete documentation as *main.pdf* in *./docs*. For *<builder> = latexpdf* run
+make twice to fix table of contents.
+
 ----------
 MyPy Stubs
 ----------
@@ -87,6 +91,18 @@ checking are contained within the subdirectory *stubs/*. You have to add this
 directory to your ``MYPYPATH`` for type checking to work (or enable the correct
 setting in an editor like atom).
 
+*Commandline* type checking works with the following workflow from within the *py_src*
+directory:
+
+.. code:: bash
+
+  $ export MYPYPATH='./stubs:$PROJECT_PATH/stubs:$PROJECT_NAME/stubs'
+  $ mypy --config-file ../setup.cfg <module_name>
+
+Here *<module_name>* could be either e.g. *module1.py* or *sub_module/module4.py*. At
+the moment, the Atom MyPy plugin cannot resolve type annotations in *sub_module.module4*,
+but this is suppressed with **ignore_missing_imports = True** in setup.cfg.
+
 -------
 Testing
 -------
@@ -94,6 +110,9 @@ Testing
 We will probably want to use `PyTest <https://docs.pytest.org/en/stable/contents.html>`_
 together with `Hypothesis <https://hypothesis.readthedocs.io/en/latest/quickstart.html>`_
 to implement so-called *property testing*.
+
+With *Makefile* the workflow is easy: Type **make test** to run all tests and **make lint**
+to run *MyPy* and *flake8*.
 
 We will also implement code coverage using
 `Codecov <https://docs.codecov.io/docs/quick-start>`_.

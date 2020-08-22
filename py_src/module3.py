@@ -22,4 +22,4 @@ def bar():
 
 
 def foo_bar():
-    print(__file__)
+    return __file__
