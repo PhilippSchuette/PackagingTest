@@ -1,15 +1,20 @@
 # You can provide further setup options in the setup.cfg configuration file!
-from setuptools import setup, find_packages
+from setuptools import setup
+# from setuptools import find_packages
 
 version = "v0.0.1"
-description = """This package explores how to document, test and distribute
-a Python package."""
+
+
+def readme():
+    with open("README.rst", 'r') as f:
+        return f.read()
+
 
 setup(
     name="mypackagingtest",
     version=version,
     description="This is a test for Python packaging",
-    long_description=description,
+    long_description=readme(),
     long_description_content_type="text/plain",
     url="",  # Github repo URL
     download_url="",  # PyPI URL

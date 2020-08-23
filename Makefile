@@ -20,8 +20,11 @@ doc:
 	@sphinx-build -M latexpdf ./docs/ ./docs/
 	@mv ./docs/latex/packingtest.pdf ./docs/main.pdf
 
+# for codecov upload to work supply `export CODECOV_TOKEN=<token>` or -t <token>
+# token can be found in settings either at codecov or travis-ci
 test:
-	@export CODECOV_TOKEN="b3233ad7-de29-4752-b9cb-5dfcd0d9718c" && cd test/ && pytest --cov-config=.coveragerc --cov-report=xml --cov-report=html --cov-report=annotate --cov=../py_src 1>>/dev/null && bash <(curl -s https://codecov.io/bash)
+	echo 'export CODECOV_TOKEN set?'
+	@cd test/ && pytest --cov-config=.coveragerc --cov-report=xml --cov-report=html --cov-report=annotate --cov=../py_src 1>>/dev/null && bash <(curl -s https://codecov.io/bash)
 
 # remember that any new line in a Makefile is executed in a new shell; the
 # @ makes only genuine output appear and suppresses the actual command:
