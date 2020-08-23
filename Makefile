@@ -9,6 +9,9 @@ SPHINXBUILD   ?= sphinx-build
 SOURCEDIR     = ./docs
 BUILDDIR      = ./docs
 
+# set SHELL to bash for target `test`:
+test: export SHELL = /bin/bash
+
 # Put it first so that "make" without argument is like "make help".
 help:
 	@$(SPHINXBUILD) -M help "$(SOURCEDIR)" "$(BUILDDIR)" $(SPHINXOPTS) $(O)
@@ -18,7 +21,7 @@ doc:
 	@mv ./docs/latex/packingtest.pdf ./docs/main.pdf
 
 test:
-	@pytest ./test/
+	@export CODECOV_TOKEN="b3233ad7-de29-4752-b9cb-5dfcd0d9718c" && cd test/ && py.test --cov-report=xml --cov=../py_src && bash <(curl -s https://codecov.io/bash)
 
 # remember that any new line in a Makefile is executed in a new shell; the
 # @ makes only genuine output appear and suppresses the actual command:

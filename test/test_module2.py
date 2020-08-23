@@ -3,6 +3,10 @@ from hypothesis import given, example
 from hypothesis.strategies import text
 
 
+def test_func1():
+    assert mod2.func1() is None
+
+
 def test_func2():
     assert mod2.func2() == "This is a random return string"
 
