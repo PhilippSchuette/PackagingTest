@@ -16,6 +16,7 @@ after_success:
     - python3 -m pip install pytest-cov
     - cd ../test
     - py.test --cov-report=xml --cov=../py_src
+    - cat coverage.xml
     - bash <(curl -s https://codecov.io/bash)
 
 notifications:
