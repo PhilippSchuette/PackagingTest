@@ -4,11 +4,19 @@ from hypothesis import given
 from hypothesis.strategies import integers
 
 
+def test_func1():
+    assert mod1.func1() == mod1.__name__
+
+
 def test_func2():
     result = mod1.func2()
     assert result[0] == 2 * result[1]
     assert result[0] == 4 * result[2]
     assert result[0] == 8 * result[3]
+
+
+def test_func3():
+    assert mod1.func3() == 0
 
 
 def test_add():

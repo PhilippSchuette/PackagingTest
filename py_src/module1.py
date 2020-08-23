@@ -9,6 +9,7 @@ import os
 
 def func1():
     print(__name__)
+    return __name__
 
 
 def func2():
@@ -17,6 +18,7 @@ def func2():
 
 def func3():
     print(os.path)
+    return 0
 
 
 def add(x, y):
