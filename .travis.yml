@@ -15,8 +15,8 @@ after_success:
     - export CODECOV_TOKEN="b3233ad7-de29-4752-b9cb-5dfcd0d9718c"
     - python3 -m pip install pytest-cov
     - cd ../test
+    - py.test --cov=../py_src
     - py.test --cov-report=xml --cov=../py_src
-    - cat coverage.xml
     - bash <(curl -s https://codecov.io/bash)
 
 notifications:
