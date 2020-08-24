@@ -43,6 +43,8 @@ clean:
 	@rm -rf docs/html
 	@mv ./docs/latex/packagingtest.pdf ./docs/main.pdf 2>>/dev/null || echo "no updated docs available"
 	@rm test/*.xml 2>>/dev/null || echo "no .xml file in test directory"
+	@rm py_src/*,cover 2>>/dev/null || echo "no coverage files found"
+	@rm py_src/sub_module/*,cover 2>>/dev/null || echo "no coverage files found"
 
 .PHONY: help doc test lint clean Makefile
 
