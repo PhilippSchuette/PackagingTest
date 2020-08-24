@@ -29,8 +29,9 @@ test:
 # remember that any new line in a Makefile is executed in a new shell; the
 # @ makes only genuine output appear and suppresses the actual command:
 lint:
-	@cd py_src/ && mypy --config-file ../setup.cfg ../py_src
+	@cd py_src/ && export MYPYPATH='./stubs' && mypy --config-file ../setup.cfg ../py_src
 	@flake8 py_src/ && echo 'flake8: success'
+	@docstr-coverage -m -f -F 80.0 py_src
 
 # Use something like @rm -rf <file> 2>>/dev/null || echo "does not exist" to
 # remove <file> and receive an appropriate error if it does not exist

@@ -7,14 +7,17 @@ import module2 as mod2
 
 
 def func1() -> None:
+    """ Function printing the module name `sub_module.module4`. """
     print(__name__)
 
 
 def func2() -> None:
+    """ Function printing the complete path to file `module4`. """
     print(__file__)
 
 
 def func3() -> str:
+    """ Function returning the submodule name `sub_module`. """
     return __package__
 
 

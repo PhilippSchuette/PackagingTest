@@ -22,4 +22,8 @@ def bar():
 
 
 def foo_bar():
+    """
+    :type: None
+    :rtype: str
+    """
     return __file__

@@ -9,14 +9,29 @@ from sub_module import module4 as mod4
 
 
 def func1():
+    """
+    :type: None
+    :rtype: None
+    """
     print(__name__)
 
 
 def func2():
+    """
+    :type: None
+    :rtype: str
+    """
     return "This is a random return string"
 
 
 def tail(s):
+    """
+    Takes an input string and returns its tail, i.e. everything except the
+    first element.
+
+    :type: str
+    :rtype: str
+    """
     if len(s) > 0:
         return s[1:]
     # if s == "hi":
