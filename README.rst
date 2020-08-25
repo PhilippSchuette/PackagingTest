@@ -11,6 +11,9 @@ How to Package A Python3 Project
 .. image:: https://img.shields.io/badge/Language-Python-blue.svg
    :target: https://www.python.org/
 
+.. image:: https://img.shields.io/github/v/release/PhilippSchuette/PackagingTest
+   :target: https://github.com/PhilippSchuette/PackagingTest
+
 --------------------------------------------------------------------------------
 
 .. contents:: Table of Contents
@@ -41,8 +44,25 @@ Project Layout
 
 The structure of the project is as follows:
 
-    1. The __init__.py contains any code
-       that should be executed whenever a module is imported.
+    1. The *py_src/__init__.py* contains any code that should be executed whenever
+       a module is imported and it is necessary for the build process
+    2. *py_src/module1.py*, *py_src/module2.py*, *py_src/module3.py* are example modules
+    3. *py_src/sub_module/module4.py* is an example for a submodule (every submodule
+        directory must also contain an *__init__.py* script)
+
+To update releases, first specify a git tag locally, then push it to remote and finally
+use the GitHub UI to create a release from it (`recent release`, ...). For the first two
+steps use
+
+.. code:: bash
+
+   $ git tag -a <vX.Y.Z> -m "tag msg"
+   $ git push --follow-tags
+
+Finally, you have to update the release version in the documentation (`docs/conf.py`).
+You can embedded badges indicating the recent version as seen above.
+
+**PyPI Version Badge:** use `https://img.shields.io/pypi/v/<package_name>`
 
 -------------
 Documentation
@@ -92,6 +112,17 @@ position on the resulting documentation.
 With *Makefile* the workflow is very simple: Type **make <builder>** and then **make clean**
 to obtain complete documentation as *main.pdf* in *./docs*. For *<builder> = latexpdf* run
 make twice to fix table of contents.
+
+If you have cloned the repository and installed it locally, you can now use
+
+.. code:: bash
+
+   $ python3 -m module1
+
+to directly open the html documentation in your default browser (**TODO:** fix the automatic
+call to the documentation build process and the calling of the *index.html* to make this
+functionality available for an installed project where the paths might be different from the
+git repo layout)
 
 ----------
 MyPy Stubs

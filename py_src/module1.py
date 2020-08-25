@@ -5,6 +5,8 @@
 # standard library modules first
 import math
 import os
+import subprocess
+import webbrowser
 
 
 def func1():
@@ -87,3 +89,9 @@ def divide(x, y):
         return x / y
     else:
         raise ZeroDivisionError
+
+
+if __name__ == "__main__":
+    if not os.path.exists("./docs/html/index.html"):
+        subprocess.run(["make", "html"], stdout=subprocess.DEVNULL)
+    webbrowser.open(r"./docs/html/index.html", new=1)

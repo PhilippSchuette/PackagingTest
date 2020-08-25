@@ -18,7 +18,6 @@ help:
 
 doc:
 	@sphinx-build -M latexpdf ./docs/ ./docs/
-	@mv ./docs/latex/packingtest.pdf ./docs/main.pdf
 
 # for codecov upload to work supply `export CODECOV_TOKEN=<token>` or -t <token>
 # token can be found in settings either at codecov or travis-ci
@@ -40,9 +39,9 @@ clean:
 	@rm -rf py_src/sub_module/__pycache__
 	@rm -rf test/__pycache__
 	@rm -rf docs/doctrees
+	@mv ./docs/latex/packagingtest.pdf ./docs/main.pdf 2>>/dev/null || echo "no updated docs available"
 	@rm -rf docs/latex
 	@rm -rf docs/html
-	@mv ./docs/latex/packagingtest.pdf ./docs/main.pdf 2>>/dev/null || echo "no updated docs available"
 	@rm test/*.xml 2>>/dev/null || echo "no .xml file in test directory"
 	@rm py_src/*,cover 2>>/dev/null || echo "no coverage files found"
 	@rm py_src/sub_module/*,cover 2>>/dev/null || echo "no coverage files found"
