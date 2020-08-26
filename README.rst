@@ -185,7 +185,9 @@ Logging Example
 ---------------
 
 This repo also contains examples on how to implement some basic logging capabilities.
-At the moment, logging is done in `module1.py` only.
+At the moment, logging is done in `module1.py` only. An example on how to manipulate
+the logger of an imported package is contained in `module2.py`: Here we can set the
+logger level of stuff imported from `module1.py` by giving a level on the command line.
 
 ----
 ToDo

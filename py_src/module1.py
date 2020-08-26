@@ -1,8 +1,13 @@
 # type: ignore
 # This is the first module in my PackingTest repository. Here we have test
 # implementations according to the ground rules set out in the README.
+#
+# This module implements a commmand line parser that reads a logging level if
+# this module is executed directly. If you need to set the logging level from a
+# module calling this one, directly access the logger as `module1.logger`.
 
 # standard library modules first
+import argparse
 import logging
 import math
 import os
@@ -14,11 +19,23 @@ if not os.path.exists("./logs/"):
     os.mkdir("./logs/")
 
 logger = logging.getLogger(__name__)
+logger.setLevel(logging.WARNING)
+
 f_handler = logging.FileHandler("./logs/mod1.log")
 formatter = logging.Formatter("%(levelname)s:%(name)s:%(message)s")
-
 f_handler.setFormatter(formatter)
-logger.setLevel(logging.INFO)
+
+
+def get_parser():
+    """ Set logging level from command line. """
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--loglv", help="set the log-level for the module, default is `INFO`",
+        default="info"
+    )
+    return parser
+
+
 logger.addHandler(f_handler)
 
 
@@ -39,6 +56,10 @@ class Employee:
         self.first = first
         self.last = last
         logger.info(f"create Employee {last}, {first} (id: {id})")
+        logger.debug("here goes debug information")
+        logger.warning("this is a warning log")
+        logger.error("this is an error log")
+        logger.critical("this is a critical log")
 
 
 def func1():
@@ -124,6 +145,10 @@ def divide(x, y):
 
 
 if __name__ == "__main__":
+    parser = get_parser()
+    args = parser.parse_args()
+    logger.setLevel(getattr(logging, args.loglv.upper()))
+
     if not os.path.exists("./docs/html/index.html"):
         subprocess.run(["make", "html"], stdout=subprocess.DEVNULL)
     webbrowser.open(r"./docs/html/index.html", new=1)

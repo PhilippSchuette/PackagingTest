@@ -47,6 +47,7 @@ clean:
 	@rm py_src/sub_module/*,cover 2>>/dev/null || echo "no coverage files found"
 	@rm -rf py_src/*.egg-info
 	@rm -rf py_src/logs
+	@rm -rf ./logs
 
 .PHONY: help doc test lint clean Makefile
 

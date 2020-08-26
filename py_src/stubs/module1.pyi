@@ -1,6 +1,11 @@
 # This is a stub file for MyPy static type checking of the module `module1`
 
+import logging
 from typing import List
+from typing_extensions import Final
+
+
+logger: Final[logging.Logger] = ...
 
 
 class Employee:

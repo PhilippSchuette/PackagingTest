@@ -1,7 +1,8 @@
 # This is the second module in my PackingTest repository. Here we have test
 # implementations according to the ground rules set out in the README.
-
+import logging
 import math
+import sys
 
 import module1 as mod1
 import module3 as mod3
@@ -48,5 +49,13 @@ if __name__ == "__main__":
     mod4.func1()
 
     print(math.sqrt(1.0))
+
+    # we can directly access the logger defined in module1 and e.g. set the
+    # logging level by reading command line input:
+    if len(sys.argv) > 1:
+        if sys.argv[1] in ["debug", "info", "warning", "error", "critical"]:
+            mod1.logger.setLevel(
+                getattr(logging, sys.argv[1].upper())
+            )
 
     emp1 = mod1.Employee(1234, "John", "Smith")
