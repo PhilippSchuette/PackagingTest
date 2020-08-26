@@ -59,10 +59,26 @@ steps use
    $ git tag -a <vX.Y.Z> -m "tag msg"
    $ git push --follow-tags
 
-Finally, you have to update the release version in the documentation (`docs/conf.py`).
-You can embedded badges indicating the recent version as seen above.
+Finally, you have to update the release version in the documentation (`docs/conf.py`)
+and the `setup.py`. You can embedded badges indicating the recent version as seen above.
 
 **PyPI Version Badge:** use `https://img.shields.io/pypi/v/<package_name>`
+
+**If you want to add modules or submodules:** Update *py_modules* in `setup.py` (and
+maybe *requirements.txt* and even *install_requires*?).
+
+---------------------
+Handling Requirements
+---------------------
+
+Your install requirements should be specified in the `setup.py` (without version pinning).
+To do so, make a clean virtual environment using *pipenv* and use the specifications from
+the `Pipfile`. You should also specify *extra_requires*; these can e.g. be used to install
+dev-requirements via
+
+..code:: bash
+
+  $ python3 -m pip install -e .[dev]
 
 -------------
 Documentation
@@ -156,21 +172,25 @@ to implement so-called *property testing*.
 With *Makefile* the workflow is easy: Type **make test** to run all tests and **make lint**
 to run *MyPy* and *flake8*.
 
-We will also implement code coverage using
-`Codecov <https://docs.codecov.io/docs/quick-start>`_.
+We have also implemented code coverage reports using pytest-cov; when running Travis
+these reports are automatically uploaed to
+`Codecov <https://docs.codecov.io/docs/quick-start>`_, where a visual inspection of
+coverage is possible and a coverage badge for GitHub is created.
+
+Finally, docstring coverage is automatically checked on every push to GitHub using
+`docstr-coverage`. Any percentage `< 80%` (customizable) will fail the build process!
+
+---------------
+Logging Example
+---------------
+
+This repo also contains examples on how to implement some basic logging capabilities.
+At the moment, logging is done in `module1.py` only.
 
 ----
 ToDo
 ----
 
-  0. Install all needed packages, etc. with *Pipenv*! Also, populate Makefile
-  1. Create some dummy code
-  2. Initialize and build documentation, add description here
-  3. Create stubs for custom classes and functions
-  4. Choose a testing module and create tests (maybe include some Python
-     *contract* module like `dpcontracts <https://github.com/deadpixi/contracts>`_)
-  5. Implement continuous integration with Travis CI, implement coverage reports
-     with `pytest-cov <https://pytest-cov.readthedocs.io/en/latest/reporting.html>`_
-     and codecov
-  6. Make project pip-installable with *wheels* (and *setuptools*?)
-  7. Package project with *Docker*
+  1. Include a Python *contract* module like `dpcontracts <https://github.com/deadpixi/contracts>`_)
+  2. Make project pip-installable with *setuptools* (do we need *wheels*?)
+  3. Package project with *Docker*

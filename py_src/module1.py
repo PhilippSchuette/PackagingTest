@@ -3,10 +3,42 @@
 # implementations according to the ground rules set out in the README.
 
 # standard library modules first
+import logging
 import math
 import os
 import subprocess
 import webbrowser
+
+# create logging directory if none exists:
+if not os.path.exists("./logs/"):
+    os.mkdir("./logs/")
+
+logger = logging.getLogger(__name__)
+f_handler = logging.FileHandler("./logs/mod1.log")
+formatter = logging.Formatter("%(levelname)s:%(name)s:%(message)s")
+
+f_handler.setFormatter(formatter)
+logger.setLevel(logging.INFO)
+logger.addHandler(f_handler)
+
+
+class Employee:
+    """ Test class with some type checked attributes and some logging. """
+
+    def __init__(self, id, first, last):
+        """
+        :type id: int
+        :param id: employee id
+        :type first: str
+        :param first: employee's first name
+        :type last: str
+        :param last: employee's last name
+        :rtype: instance of the `Employee` class
+        """
+        self.id = id
+        self.first = first
+        self.last = last
+        logger.info(f"create Employee {last}, {first} (id: {id})")
 
 
 def func1():

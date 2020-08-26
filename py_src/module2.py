@@ -48,3 +48,5 @@ if __name__ == "__main__":
     mod4.func1()
 
     print(math.sqrt(1.0))
+
+    emp1 = mod1.Employee(1234, "John", "Smith")

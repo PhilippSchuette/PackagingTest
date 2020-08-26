@@ -3,6 +3,10 @@
 from typing import List
 
 
+class Employee:
+    def __init__(self, id: int, first: str, last: str) -> None: ...
+
+
 def func1() -> str: ...
 
 

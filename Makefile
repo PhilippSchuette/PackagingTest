@@ -45,6 +45,8 @@ clean:
 	@rm test/*.xml 2>>/dev/null || echo "no .xml file in test directory"
 	@rm py_src/*,cover 2>>/dev/null || echo "no coverage files found"
 	@rm py_src/sub_module/*,cover 2>>/dev/null || echo "no coverage files found"
+	@rm -rf py_src/*.egg-info
+	@rm -rf py_src/logs
 
 .PHONY: help doc test lint clean Makefile
 

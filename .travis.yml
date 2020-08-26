@@ -6,8 +6,7 @@ python:
 before_install:
     - cd py_src
 install:
-    - pip3 install -r requirements.txt
-    - pip3 install -e ..
+    - python3 -m pip install -e ..[dev]
 script:
     - export MYPYPATH='./stubs'
     - mypy ../py_src

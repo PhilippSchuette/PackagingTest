@@ -2,7 +2,7 @@
 from setuptools import setup
 # from setuptools import find_packages
 
-version = "v0.0.1"
+version = "v0.1.0"
 
 
 def readme():
@@ -16,7 +16,7 @@ setup(
     description="This is a test for Python packaging",
     long_description=readme(),
     long_description_content_type="text/plain",
-    url="",  # Github repo URL
+    url="https://github.com/PhilippSchuette/PackagingTest",
     download_url="",  # PyPI URL
     author="Philipp Schuette",
     author_email="pschuet2@math.upb.de",
@@ -35,5 +35,9 @@ setup(
         "matplotlib",
         "numpy"
     ],
+    extras_require={
+        "dev": ["mypy", "mypy-extensions", "hypothesis", "flake8", "pytest",
+                "pytest-cov", "docstr-coverage"]
+    },
     zip_safe=False
 )
