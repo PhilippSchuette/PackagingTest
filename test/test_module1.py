@@ -1,7 +1,20 @@
+import argparse
 import module1 as mod1
 import pytest
 from hypothesis import given
 from hypothesis.strategies import integers
+
+
+def test_parser():
+    parser = mod1.get_parser()
+    assert isinstance(parser, argparse.ArgumentParser)
+
+
+def test_Employee():
+    emp = mod1.Employee(1234, "John", "Smith")
+    assert emp.id == 1234
+    assert emp.first == "John"
+    assert emp.last == "Smith"
 
 
 def test_func1():
