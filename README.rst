@@ -14,6 +14,12 @@ How to Package A Python3 Project
 .. image:: https://img.shields.io/github/v/release/PhilippSchuette/PackagingTest
    :target: https://github.com/PhilippSchuette/PackagingTest
 
+.. image:: https://img.shields.io/badge/docs-docstr--cov-success
+   :target: https://pypi.org/project/docstr-coverage/
+
+.. image:: https://img.shields.io/badge/mypy-checked-blue
+   :target: https://mypy.readthedocs.io/en/stable/
+
 --------------------------------------------------------------------------------
 
 .. contents:: Table of Contents
@@ -196,3 +202,8 @@ ToDo
   1. Include a Python *contract* module like `dpcontracts <https://github.com/deadpixi/contracts>`_)
   2. Make project pip-installable with *setuptools* (do we need *wheels*?)
   3. Package project with *Docker*
+  4. Publish documentation on *readthedocs*?
+  5. Create an appropriately packaged example for C extension modules created with
+     **`Cython <https://cython.readthedocs.io/en/latest/>`_**
+  6. Integrate **Cython** with the rest of the package, i.e. package type hint stubs
+     appropriately and without duplication between **Cython** and **MyPy**
