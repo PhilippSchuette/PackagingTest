@@ -65,8 +65,9 @@ steps use
    $ git tag -a <vX.Y.Z> -m "tag msg"
    $ git push --follow-tags
 
-Finally, you have to update the release version in the documentation (`docs/conf.py`)
-and the `setup.py`. You can embedded badges indicating the recent version as seen above.
+Finally, you have to update the release version in `py_src/__init__.py`. This will automatically
+update the version number in the documentation (`docs/conf.py`) as well as the `setup.py`. You
+can embedded badges indicating the recent version as seen above.
 
 **PyPI Version Badge:** use `https://img.shields.io/pypi/v/<package_name>`
 
@@ -212,6 +213,30 @@ and the GitHub repo does not distribute the *.so* files. **Cython** is therefore
 dependency for the project and any potential user needs to have a C/C++ compiler installed
 on their system.
 
+-------------
+PyPI Workflow
+-------------
+
+The central tool for distributing packages on PyPI (*PYthon Package Index*) is twine:
+
+.. code:: bash
+
+  $ python3 -m pip install twine
+
+The workflow is straight forward: Use
+
+.. code:: bash
+
+  $ python3 setup.py sdist bdist_wheel
+
+to create a *dist/* directory with a source *tar*-archive and a source *wheel*. You should
+check the contents of the source archives, e.g. with `tar tzf <...>.tar.gz`. You can check
+if your package description renders properly with
+
+.. code:: bash
+
+  $ twine check dist/*
+
 ----
 ToDo
 ----
@@ -221,6 +246,6 @@ ToDo
   3. Package project with *Docker*
   4. Publish documentation on *readthedocs*?
   5. Create an appropriately packaged example for C extension modules created with
-     **`Cython <https://cython.readthedocs.io/en/latest/>`_**
+     `Cython <https://cython.readthedocs.io/en/latest/>`_
   6. Integrate **Cython** with the rest of the package, i.e. package type hint stubs
      appropriately and without duplication between **Cython** and **MyPy**

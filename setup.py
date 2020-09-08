@@ -1,11 +1,29 @@
 # You can provide further setup options in the setup.cfg configuration file!
 # Below, replace "" with a suitable package name to import even top directory
 # modules as <package_name>.<module_name>, etc.
+
 from setuptools import setup, Extension
 # from setuptools import find_packages
 # from Cython.Build import cythonize
+import codecs
+import os.path
 
-version = "v0.1.0"
+
+def read(rel_path):
+    here = os.path.abspath(os.path.dirname(__file__))
+    with codecs.open(os.path.join(here, rel_path), 'r') as fp:
+        return fp.read()
+
+
+def get_version(rel_path):
+    for line in read(rel_path).splitlines():
+        if line.startswith('__version__'):
+            return line.split('"')[1]
+    else:
+        raise RuntimeError("Unable to find version string.")
+
+
+version = get_version("py_src/__init__.py")
 ext = [Extension("extension1", ["py_src/extension1.pyx"])]
 
 
@@ -37,6 +55,7 @@ setup(
     ext_modules=ext,
     classifiers=[
         "Programming Language :: Python :: 3",
+        "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
     python_requires=">=3.6",
