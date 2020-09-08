@@ -237,6 +237,18 @@ if your package description renders properly with
 
   $ twine check dist/*
 
+Finally, the actual upload happens with
+
+.. code::
+  $ twine upload dist/*
+
+This test package should actually not be upload to **PyPI** but to **TestPyPI** instead.
+To do just this, add the `--repository testpypi` flag to the twine upload command. Now
+test **pip** installations can be issued by adding the
+`--index-url https://test.pypi.org/simple/` flag to the usual `pip3 install` command.
+Giving the `--extra-index-url https://pypi.org/simple` allows pip to install dependencies
+from the actual package index.
+
 ----
 ToDo
 ----
