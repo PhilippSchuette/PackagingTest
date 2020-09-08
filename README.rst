@@ -207,7 +207,10 @@ Cython Extension Modules
 
   $ python3 setup.py build_ext --inplace
 
-The current **Travis** build also includes the **Cython** generated *.so* extensions.
+The current **Travis** build process generates the *.so* from scratch (i.e. from *.pyx*)
+and the GitHub repo does not distribute the *.so* files. **Cython** is therefore a hard
+dependency for the project and any potential user needs to have a C/C++ compiler installed
+on their system.
 
 ----
 ToDo
