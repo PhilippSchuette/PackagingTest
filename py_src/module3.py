@@ -27,3 +27,14 @@ def foo_bar():
     :rtype: str
     """
     return __file__
+
+
+if __name__ == "__main__":
+    import timeit
+    res1 = timeit.timeit(
+        "cy_fib(10000)", number=10000, setup="from extension1 import cy_fib"
+    )
+    res2 = timeit.timeit(
+        "py_fib(10000)", number=10000, setup="from extension1 import py_fib"
+    )
+    print(f"Cython version of Fibonacci sequence runs {res2 / res1}x faster")

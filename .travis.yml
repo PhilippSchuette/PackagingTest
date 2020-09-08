@@ -7,6 +7,7 @@ before_install:
     - cd py_src
 install:
     - python3 -m pip install -e ..[dev]
+    # - python3 setup.py build_ext --inplace
 script:
     - export MYPYPATH='./stubs'
     - mypy ../py_src
@@ -16,6 +17,8 @@ after_success:
     - cd ../test
     - pytest --cov-config=.coveragerc --cov-report=xml --cov=../py_src
     - bash <(curl -s https://codecov.io/bash)
+    - cd ..
+    - python3 -c "import module1; import module2; import module3; import sub_module.module4; import extension1; print('success')"
 
 notifications:
     email: false

@@ -48,6 +48,11 @@ clean:
 	@rm -rf py_src/*.egg-info
 	@rm -rf py_src/logs
 	@rm -rf ./logs
+	@rm -rf ./build
+	@rm -rf .hypothesis
+	@rm -rf py_src/.hypothesis
+	@rm -rf test/.hypothesis
+	@rm py_src/*.c 2>>/dev/null || echo "no recent .c files in py_src"
 
 .PHONY: help doc test lint clean Makefile
 

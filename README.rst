@@ -195,6 +195,20 @@ At the moment, logging is done in `module1.py` only. An example on how to manipu
 the logger of an imported package is contained in `module2.py`: Here we can set the
 logger level of stuff imported from `module1.py` by giving a level on the command line.
 
+------------------------
+Cython Extension Modules
+------------------------
+
+**Cython** extension modules provide a convenient way to combine the speed of **C** or
+**C++** code with the advantages of pure (C)Python. There are several ways of using
+**Cython**, but in this project you can simply type
+
+.. code:: bash
+
+  $ python3 setup.py build_ext --inplace
+
+The current **Travis** build also includes the **Cython** generated *.so* extensions.
+
 ----
 ToDo
 ----

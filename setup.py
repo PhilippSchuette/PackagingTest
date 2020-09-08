@@ -1,8 +1,10 @@
 # You can provide further setup options in the setup.cfg configuration file!
-from setuptools import setup
+from setuptools import setup, Extension
 # from setuptools import find_packages
+# from Cython.Build import cythonize
 
 version = "v0.1.0"
+ext = [Extension("extension1", ["./py_src/extension1.pyx"])]
 
 
 def readme():
@@ -26,6 +28,7 @@ setup(
     package_data={
         'py_src': ['py.typed']
     },
+    ext_modules=ext,
     classifiers=[
         "Programming Language :: Python :: 3",
         "Operating System :: OS Independent",
@@ -33,7 +36,8 @@ setup(
     python_requires=">=3.6",
     install_requires=[
         "matplotlib",
-        "numpy"
+        "numpy",
+        "cython"
     ],
     extras_require={
         "dev": ["mypy", "mypy-extensions", "hypothesis", "flake8", "pytest",
