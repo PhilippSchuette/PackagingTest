@@ -82,7 +82,7 @@ To do so, make a clean virtual environment using *pipenv* and use the specificat
 the `Pipfile`. You should also specify *extra_requires*; these can e.g. be used to install
 dev-requirements via
 
-..code:: bash
+.. code:: bash
 
   $ python3 -m pip install -e .[dev]
 
