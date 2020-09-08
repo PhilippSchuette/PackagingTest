@@ -213,6 +213,18 @@ and the GitHub repo does not distribute the *.so* files. **Cython** is therefore
 dependency for the project and any potential user needs to have a C/C++ compiler installed
 on their system.
 
+**Note** that you can also include **Cython** type annotations via the ordinary Python
+type annotation syntax:
+
+.. code:: Python
+
+  import cython
+  ...
+  def add(x: cython.int) -> cython.int:
+        return x + 1
+
+This syntax can also be mixed with ordinary (C)Python types e.g. dict, tuple, ...
+
 -------------
 PyPI Workflow
 -------------
@@ -257,7 +269,3 @@ ToDo
   2. Make project pip-installable with *setuptools* (do we need *wheels*?)
   3. Package project with *Docker*
   4. Publish documentation on *readthedocs*?
-  5. Create an appropriately packaged example for C extension modules created with
-     `Cython <https://cython.readthedocs.io/en/latest/>`_
-  6. Integrate **Cython** with the rest of the package, i.e. package type hint stubs
-     appropriately and without duplication between **Cython** and **MyPy**
