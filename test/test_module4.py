@@ -1,7 +1,11 @@
 import numpy as np  # type: ignore
 import pytest
+import warnings
 
 import sub_module.module4 as mod4
+
+warnings.filterwarnings("ignore", message="numpy.dtype size changed")
+warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 
 
 def test_func1():
