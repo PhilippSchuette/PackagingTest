@@ -1,11 +1,8 @@
 import numpy as np  # type: ignore
+import os
 import pytest
-import warnings
 
 import sub_module.module4 as mod4
-
-warnings.filterwarnings("ignore", message="numpy.dtype size changed")
-warnings.filterwarnings("ignore", message="numpy.ufunc size changed")
 
 
 def test_func1():
@@ -18,6 +15,10 @@ def test_func2():
 
 def test_func3():
     assert mod4.func3() == mod4.__package__
+
+
+# temporarily disable the Numba JIT magic for testing purposes:
+os.environ["NUMBA_DISABLE_JIT"] = "1"
 
 
 # this test only asserts that all numba accelerated functions actually run:

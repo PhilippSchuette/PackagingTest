@@ -15,6 +15,7 @@ script:
     - docstr-coverage -m -f -F 80.0 ../py_src
 after_success:
     - cd ../test
+    - export NUMBA_DISABLE_JIT=1
     - pytest --cov-config=.coveragerc --cov-report=xml --cov=../py_src
     - bash <(curl -s https://codecov.io/bash)
     - cd ..
