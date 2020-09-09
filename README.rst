@@ -29,6 +29,8 @@ How to Package A Python3 Project
 Introduction
 ------------
 
+**In an actual package documentation: Make rst highlighting syntax consistent!**
+
 This package is a simple experiment involving the structural layout,
 documentation, typing and testing facilities of an actual project like the
 resonance related code in ``my_sage_repo``. All packages etc. should be installed
@@ -129,8 +131,8 @@ The general logic goes as follows: For any Python module in py_src, add an assoc
 the module. The position of the .rst file in the toctree of index.rst determines the
 position on the resulting documentation.
 
-.. note::
-  **index.rst contains examples on how to include LaTeX using the raw directive!**
+.. hint::
+  index.rst contains examples on how to include LaTeX using the raw directive!
 
 With *Makefile* the workflow is very simple: Type **make <builder>** and then **make clean**
 to obtain complete documentation as *main.pdf* in *./docs*. For *<builder> = latexpdf* run
@@ -224,6 +226,12 @@ type annotation syntax:
         return x + 1
 
 This syntax can also be mixed with ordinary (C)Python types e.g. dict, tuple, ...
+
+We also have an example on how to use **Numba** decorators to speed up and parallelize
+computations; these examples can be found in ``sub_module.module4``. For an actual
+performance-critical project one could think about using a combination of **Cython**
+and **Numba**, where the latter is more easily integrated in ordinary *CPython* code
+that uses loops and *NumPy*.
 
 -------------
 PyPI Workflow
