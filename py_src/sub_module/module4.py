@@ -4,9 +4,9 @@
 
 from timeit import timeit
 
-import numpy as np
+import numpy as np  # type: ignore
 
-from numba import jit, prange
+from numba import jit, prange  # type: ignore
 
 from module1 import add
 import module2 as mod2
@@ -22,6 +22,10 @@ y = np.arange(1e8)
 # in speed:
 @jit(nopython=True)
 def go_fast(a):
+    """
+    Numba accelerated function doing computations on the main diagonal of
+    an input NumPy array.
+    """
     trace = 0.0
     for i in range(a.shape[0]):
         trace += np.tanh(a[i, i])
@@ -29,6 +33,9 @@ def go_fast(a):
 
 
 def go_slow(a):
+    """
+    The same as `go_fast` but without Numba acceleration, i.e. @jit decorator.
+    """
     trace = 0.0
     for i in range(a.shape[0]):
         trace += np.tanh(a[i, i])
@@ -36,11 +43,13 @@ def go_slow(a):
 
 
 def np_sum(A):
+    "Sum of square roots of entries of a NumPy array using np.dot."
     return np.sum(np.sqrt(A))
 
 
 @jit(nopython=True, parallel=True)
 def sum_parallel(A):
+    "The same as np_sum but Numba accelerated and in parallel."
     n = len(A)
     acc = 0.0
     for i in prange(n):
@@ -50,6 +59,7 @@ def sum_parallel(A):
 
 @jit(nopython=True, parallel=True, fastmath=True)
 def sum_parallel_fast(A):
+    "The same as sum_parallel but with `fastmath=True` enabled."
     n = len(A)
     acc = 0.0
     for i in prange(n):

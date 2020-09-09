@@ -277,3 +277,5 @@ ToDo
   2. Make project pip-installable with *setuptools* (do we need *wheels*?)
   3. Package project with *Docker*
   4. Publish documentation on *readthedocs*?
+  5. After next *NumPy* release: make most recent *NumPy* version mandatory such that
+     library stubs are available by default

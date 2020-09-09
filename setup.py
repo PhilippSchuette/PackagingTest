@@ -62,7 +62,9 @@ setup(
     install_requires=[
         "matplotlib",
         "numpy",
-        "cython"
+        "cython",
+        "numba",
+        "scipy"
     ],
     extras_require={
         "dev": ["mypy", "mypy-extensions", "hypothesis", "flake8", "pytest",
