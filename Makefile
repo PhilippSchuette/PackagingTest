@@ -52,7 +52,7 @@ clean:
 	@rm -rf .hypothesis
 	@rm -rf py_src/.hypothesis
 	@rm -rf test/.hypothesis
-	@rm py_src/*.c 2>>/dev/null || echo "no recent .c files in py_src"
+	# @rm py_src/*.c 2>>/dev/null || echo "no recent .c files in py_src"
 	@rm -rf dist/
 
 .PHONY: help doc test lint clean Makefile

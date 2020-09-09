@@ -259,7 +259,8 @@ if your package description renders properly with
 
 Finally, the actual upload happens with
 
-.. code::
+.. code:: bash
+
   $ twine upload dist/*
 
 This test package should actually not be upload to **PyPI** but to **TestPyPI** instead.
