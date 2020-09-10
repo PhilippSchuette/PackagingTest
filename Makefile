@@ -54,6 +54,7 @@ clean:
 	@rm -rf test/.hypothesis
 	@rm -rf dist/
 	@rm py_src/*.h.gch 2>>/dev/null || echo "no recent precompiled headers in py_src"
+	@rm py_src/*.so py_src/extension1.c py_src/extension1.h py_src/extension2.c 2>>/dev/null || echo "no Cython automatic .c, .h, .so"
 
 # if all .c files are automatically generated, add the following to `clean`:
 # @rm py_src/*.c 2>>/dev/null || echo "no recent .c files in py_src"

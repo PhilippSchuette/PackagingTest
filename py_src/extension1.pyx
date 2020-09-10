@@ -3,6 +3,8 @@
 # regular (C)Python is automated in setup.py.
 # cython: language_level=3
 
+from mystruct cimport spam
+
 
 # include pure C functions from `hello.c` as an example for inclusion of
 # external/custom C libraries:
@@ -34,6 +36,10 @@ def py_fib(n):
 cpdef void hello(int x, int y):
     result = add(x, y)
     print(result)
+
+
+cdef public float cube(float x):
+    return x * x * x
 
 
 # finally, declare a C function public for use in any C libraries linked with
