@@ -26,8 +26,10 @@ def get_version(rel_path):
 version = get_version("py_src/__init__.py")
 ext = [
     Extension("extension1",
-              sources=["py_src/extension1.pyx", "py_src/hello.c"]),
-    Extension("extension2", sources=["py_src/extension2.pyx"])
+              sources=["py_src/extension1.pyx", "py_src/hello.c"],
+              include_dirs=["./py_src/"]),
+    Extension("extension2", sources=["py_src/extension2.pyx"],
+              include_dirs=["./py_src/"])
 ]
 
 

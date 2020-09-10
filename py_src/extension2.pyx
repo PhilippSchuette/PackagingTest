@@ -4,14 +4,15 @@
 # reason)...
 # cython: language_level=3
 
-cimport extension1
 # from extension1 cimport cube
 
 # this is how to gain access to the NumPy C API:
 # cimport numpy
 
-# this works fine locally, but lets Travis build fail:
-# from mystruct cimport spam
+# these work fine locally, but let Travis build fail:
+from mystruct cimport spam
+# cimport extension1
+
 
 def print_cube():
     tmp = 3.1415
