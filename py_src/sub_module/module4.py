@@ -2,6 +2,8 @@
 # the submodule `submodule`. Here we have test implementations according to the
 # ground rules set out in the README.
 
+from cProfile import Profile
+from pstats import Stats
 from timeit import timeit
 
 import numpy as np  # type: ignore
@@ -11,9 +13,30 @@ from numba import jit, prange  # type: ignore
 from module1 import add
 import module2 as mod2
 
+DEBUG = False
+
+
+# define a profiling decorator:
+def profiling(param=False):
+    def _profiling(func):
+        def wrapped(*args, **kwargs):
+            if param:
+                pr = Profile()
+                pr.enable()
+                result = func(*args, **kwargs)
+                pr.disable()
+                pr.dump_stats(func.__name__ + ".cprofile")
+            else:
+                result = func(*args, **kwargs)
+            return result
+
+        return wrapped
+
+    return _profiling
+
 
 x = np.arange(100).reshape(10, 10)
-y = np.arange(1e8)
+y = np.arange(1e7)
 
 
 # setting `parallel=True` here actually slows down execution; with
@@ -32,6 +55,7 @@ def go_fast(a):
     return a + trace
 
 
+@profiling(DEBUG)
 def go_slow(a):
     """
     The same as `go_fast` but without Numba acceleration, i.e. @jit decorator.
@@ -88,6 +112,11 @@ if __name__ == "__main__":
     result3 = timeit("np_sum(y)", globals=globals(), number=100)
     result4 = timeit("sum_parallel(y)", globals=globals(), number=100)
     result5 = timeit("sum_parallel_fast(y)", globals=globals(), number=100)
+
+    go_slow(x)
+    if DEBUG:
+        p = Stats("go_slow.cprofile")
+        p.strip_dirs().sort_stats("tottime").print_stats()
 
     print("fast result: ", result1)
     print("slow result: ", result2)

@@ -17,14 +17,13 @@ def test_func3():
     assert mod4.func3() == mod4.__package__
 
 
-# temporarily disable the Numba JIT magic for testing purposes:
-os.environ["NUMBA_DISABLE_JIT"] = "1"
-
-
+# temporarily disable the Numba JIT magic for testing purposes by exporting
+# environment variable NUMBA_DISABLE_JIT=1 in terminal (does not work from
+# this script...)
 # this test only asserts that all numba accelerated functions actually run:
 def test_numba():
     x = np.arange(100).reshape(10, 10)
-    y = np.arange(1e8)
+    y = np.arange(1e4)
 
     try:
         mod4.go_fast(x)
