@@ -3,7 +3,8 @@
 # regular (C)Python is automated in setup.py.
 # cython: language_level=3
 
-from mystruct cimport spam
+# this works locally, but lets Travis build fail:
+# from mystruct cimport spam
 
 
 # include pure C functions from `hello.c` as an example for inclusion of

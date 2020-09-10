@@ -2,3 +2,4 @@ include README.rst
 
 global-include *.pyx
 global-include *.pxd
+global-include *.h
