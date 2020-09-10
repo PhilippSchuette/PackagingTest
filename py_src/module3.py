@@ -2,6 +2,10 @@
 # This is the third module in my PackingTest repository. Here we have test
 # implementations according to the ground rules set out in the README.
 
+import timeit
+
+from extension1 import cy_fib, py_fib, hello
+
 
 def foo():
     """
@@ -30,11 +34,11 @@ def foo_bar():
 
 
 if __name__ == "__main__":
-    import timeit
-    res1 = timeit.timeit(
-        "cy_fib(10000)", number=10000, setup="from extension1 import cy_fib"
-    )
-    res2 = timeit.timeit(
-        "py_fib(10000)", number=10000, setup="from extension1 import py_fib"
-    )
+    print(cy_fib(10))
+    print(py_fib(10))
+    hello(1, 2)
+
+    res1 = timeit.timeit("cy_fib(10000)", number=10000, globals=globals())
+    res2 = timeit.timeit("py_fib(10000)", number=10000, globals=globals())
+
     print(f"Cython version of Fibonacci sequence runs {res2 / res1}x faster")

@@ -233,6 +233,10 @@ performance-critical project one could think about using a combination of **Cyth
 and **Numba**, where the latter is more easily integrated in ordinary *CPython* code
 that uses loops and *NumPy*.
 
+We now have an example on how to call C libraries into a **Cython** .pyx file and, conversely,
+how to call ``cdef public`` functions declared and defined in a .pyx file into a custom
+C library (c.f. `extension1.pyx`, `hello.c`, `hello.h`, `module3.py`).
+
 -------------
 PyPI Workflow
 -------------

@@ -4,7 +4,7 @@
 
 from setuptools import setup, Extension
 # from setuptools import find_packages
-# from Cython.Build import cythonize
+from Cython.Build import cythonize
 import codecs
 import os.path
 
@@ -24,7 +24,10 @@ def get_version(rel_path):
 
 
 version = get_version("py_src/__init__.py")
-ext = [Extension("extension1", ["py_src/extension1.pyx"])]
+ext = [
+    Extension("extension1",
+              sources=["py_src/extension1.pyx", "py_src/hello.c"])
+]
 
 
 def readme():
@@ -52,7 +55,7 @@ setup(
         'py_src': ['py.typed']
     },
     include_package_data=True,
-    ext_modules=ext,
+    ext_modules=cythonize(ext),
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",

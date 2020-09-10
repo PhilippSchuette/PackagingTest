@@ -10,8 +10,9 @@ import numpy as np  # type: ignore
 
 from numba import jit, prange  # type: ignore
 
-from module1 import add
 import module2 as mod2
+
+from module1 import add
 
 DEBUG = False
 

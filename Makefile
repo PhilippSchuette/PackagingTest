@@ -53,6 +53,7 @@ clean:
 	@rm -rf py_src/.hypothesis
 	@rm -rf test/.hypothesis
 	@rm -rf dist/
+	@rm py_src/*.h.gch 2>>/dev/null || echo "no recent precompiled headers in py_src"
 
 # if all .c files are automatically generated, add the following to `clean`:
 # @rm py_src/*.c 2>>/dev/null || echo "no recent .c files in py_src"
