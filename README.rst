@@ -237,6 +237,8 @@ We now have an example on how to call C libraries into a **Cython** .pyx file an
 how to call ``cdef public`` functions declared and defined in a .pyx file into a custom
 C library (c.f. `extension1.pyx`, `hello.c`, `hello.h`, `module3.py`).
 
+**Cython is now a hard dependency; any user has to have Cython installed on their system**
+
 -------------
 PyPI Workflow
 -------------

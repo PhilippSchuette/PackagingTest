@@ -6,6 +6,7 @@ python:
 before_install:
     - cd py_src
 install:
+    - python3 -m pip install Cython
     - python3 -m pip install -e ..[dev]
     # - python3 setup.py build_ext --inplace
 script:
