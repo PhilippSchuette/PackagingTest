@@ -53,9 +53,10 @@ setup(
         "sub_module.__main__"
     ],  # replacing "" would mean <package>.<module> syntax here also!
     package_data={
-        'py_src': ['py.typed']
+        "py_src": ["py.typed"],
+        "": ["*.pxd"]
     },
-    include_package_data=True,
+    include_package_data=True,  # with this set to True `package_data` is null
     ext_modules=cythonize(ext),
     classifiers=[
         "Programming Language :: Python :: 3",
