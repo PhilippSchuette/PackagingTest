@@ -10,7 +10,7 @@
 # cimport numpy
 
 # these work fine locally, but let Travis build fail:
-from mystruct cimport spam
+# from mystruct cimport spam
 # cimport extension1
 
 
