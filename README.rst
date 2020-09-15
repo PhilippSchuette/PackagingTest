@@ -20,6 +20,9 @@ How to Package A Python3 Project
 .. image:: https://img.shields.io/badge/mypy-checked-blue
    :target: https://mypy.readthedocs.io/en/stable/
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+
 --------------------------------------------------------------------------------
 
 .. contents:: Table of Contents
@@ -239,6 +242,17 @@ C library (c.f. `extension1.pyx`, `hello.c`, `hello.h`, `module3.py`).
 
 **Cython is now a hard dependency; any user has to have Cython installed on their system**
 
+----------------
+GPU Acceleration
+----------------
+
+A next step would be to add further parallel programming support (e.g. C/C++ extension
+modules, Python Dask, multiprocessing, multithreading, async) or switch to GPU powered
+computations (at least for performance critical sections?!). For GPU compatible drop-in
+replacements with (almost) the NumPy API one could use **CuPy** (works on Nvidia's Cuda
+architecture). Further research (mostly identifying critical sections and taking performance
+measurements with simple drop-in replacements) is warranted here!
+
 -------------
 PyPI Workflow
 -------------
@@ -275,6 +289,19 @@ test **pip** installations can be issued by adding the
 `--index-url https://test.pypi.org/simple/` flag to the usual `pip3 install` command.
 Giving the `--extra-index-url https://pypi.org/simple` allows pip to install dependencies
 from the actual package index.
+
+----------
+Code Style
+----------
+
+To achieve a unified code style across all modules and submodules, you can use a tool called
+**black** (``pip3 install black``). It is possible to either lint with black upon every push
+or pull-request or to use a black plugin which lints on save. To achieve consistency you then
+need to make sure that any core developer uses black and that any pull-request is edited by
+a core developer before committing. The former way should therefore be preferred for a larger
+project with many external contributors.
+
+**Note** that compatibility between flake8 and black requires additional options, see *setup.cfg*.
 
 ----
 ToDo
