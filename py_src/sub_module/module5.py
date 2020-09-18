@@ -53,9 +53,11 @@ def display_top(snapshot, key_type='lineno', limit=10) -> None:
 
 
 class SlottedClass:
+    " Simple class with slots to demonstrate memory savings. "
     __slots__ = ("a", "b", "c", "d")
 
     def __init__(self, a, b):
+        " Initialize simple slotted class with parameters ``a, b``. "
         self.a = a
         self.b = b
         self.c = "hello"
@@ -63,7 +65,9 @@ class SlottedClass:
 
 
 class NotSlottedClass:
+    " Simple class without slots to compare to ``SlottedClass()``. "
     def __init__(self, a, b):
+        " Initialize simple class without slots with parameters ``a, b``. "
         self.a = a
         self.b = b
         self.c = "hello"
