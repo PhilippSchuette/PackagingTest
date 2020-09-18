@@ -201,6 +201,17 @@ At the moment, logging is done in `module1.py` only. An example on how to manipu
 the logger of an imported package is contained in `module2.py`: Here we can set the
 logger level of stuff imported from `module1.py` by giving a level on the command line.
 
+Additionally, we present an example for CPU performance profiling in `sub_module.module4`.
+At the moment, there is no working example for Memory profiling; `trace_mem.py` contains
+first experiments in this direction using the standard library module `tracemalloc`. Once
+running smoothly, this code should be integrated in e.g. `sub_module.module5.py`.
+
+A (on first glance at least) very useful third-party tool for memory profiling is `Pympler`;
+it provides facilities to get object sizes recursively and track either particular instances
+or even whole classes by taking *snapshots*; this might be particularly useful in
+combination with Jupyter Notebooks, as its API provides facilities for HTML formatted
+statistics.
+
 ------------------------
 Cython Extension Modules
 ------------------------
