@@ -3,7 +3,7 @@ import linecache
 import sys
 import tracemalloc
 
-import numpy as np
+import numpy as np  # type: ignore
 
 
 # define a very basic memory profiling decorator:
@@ -27,7 +27,7 @@ def mem_profiling(param=False):
     return _profiling
 
 
-def display_top(snapshot, key_type='lineno', limit=10):
+def display_top(snapshot, key_type='lineno', limit=10) -> None:
     " Take memory snapshot, excluding 'frozen importlib._bootstrap', '<unknown>'. "
     snapshot = snapshot.filter_traces((
         tracemalloc.Filter(False, "<frozen importlib._bootstrap>"),

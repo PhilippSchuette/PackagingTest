@@ -52,7 +52,7 @@ setup(
     package_dir={"": "py_src"},  # could replace "" with package name here
     py_modules=[
         "module1", "module2", "module3", "sub_module.module4",
-        "sub_module.__main__"
+        "sub_module.module5", "sub_module.__main__"
     ],  # replacing "" would mean <package>.<module> syntax here also!
     package_data={
         "py_src": ["py.typed"],

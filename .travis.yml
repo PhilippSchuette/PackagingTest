@@ -20,7 +20,7 @@ after_success:
     - pytest --cov-config=.coveragerc --cov-report=xml --cov=../py_src
     - bash <(curl -s https://codecov.io/bash)
     - cd ..
-    - python3 -c "import module1; import module2; import module3; import sub_module.module4; import extension1; print('success')"
+    - python3 -c "import module1; import module2; import module3; import sub_module.module4; import sub_module.module5; import extension1; import extension2; print('success')"
     - python3 -m sub_module
     - test_pack_test
 
