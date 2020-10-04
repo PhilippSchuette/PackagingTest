@@ -335,6 +335,11 @@ in this repository:
   8. optionally a **data** folder with data (binary data, database templates, etc.)
   9. optionally a **Pipfile** to replace *requirements.txt*
 
+After creating and populating a new GitHub respository (see above), you have to create the *Codecov*
+and *Travis* hooks. To do so, sign into *Travis*, click **Profile -> Settings -> Manage Repositories on Github** and follow the instructions from there (install *Travis* for the new or all repositories). For
+*Codecov*, once you have linked the coverage service with your GitHub, the coverage report upload as
+demonstrated in this repository should work.
+
 ----
 ToDo
 ----
