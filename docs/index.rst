@@ -21,6 +21,7 @@ Welcome to PackagingTest's documentation!
    module2
    module3
    module4
+   notebook1
 
 --------------------------------
 
