@@ -71,7 +71,8 @@ setup(
         "numpy",
         "cython",
         "numba",
-        "scipy"
+        "scipy",
+        "pillow>=9.0.0"
     ],
     extras_require={
         "dev": ["mypy", "mypy-extensions", "hypothesis", "flake8", "pytest",
