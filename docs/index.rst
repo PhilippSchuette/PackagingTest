@@ -21,6 +21,7 @@ Welcome to PackagingTest's documentation!
    module2
    module3
    module4
+   notebook1
 
 --------------------------------
 
@@ -37,9 +38,14 @@ Indices and tables
    index-generating object descriptions and index-directives; the module index
    contains one index per py:module directive.
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+.. only:: html
+
+  -------
+  Indices
+  -------
+  * :ref:`genindex`
+  * :ref:`modindex`
+  * :ref:`search`
 
 
 An Example Graphic

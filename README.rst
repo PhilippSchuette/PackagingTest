@@ -314,6 +314,32 @@ project with many external contributors.
 
 **Note** that compatibility between flake8 and black requires additional options, see *setup.cfg*.
 
+==============================================
+Summary -- What to copy into your next Project
+==============================================
+
+First, contemplate a directory structure based on the project layout and requirements; then,
+make a `src` (or `py_src`, ...) folder and your structure inside it. Note, that you need an
+``__init__.py``, maybe a ``__main__.py`` and your ``*.pyi`` stub files!
+
+Next, the following option and setup files are necessary to achieve the functionality presented
+in this repository:
+
+  1. **setup.py** and **setup.cfg**
+  2. **README.rst**, **LICENSE**, **MANIFEST.in** (, **CODE_OF_CONDUCT.rst**, **CONTRIBUTING.rst**)
+  3. **.codecov.yml**, **.travis.yml**, **.coverage**
+  4. **Makefile**
+  5. **docs** folder and working *Sphinx* setup (just copy and adapt the stuff in this chapter!)
+  6. a **test** folder with your unit tests (don't forget the ``__init__.py``)
+  7. optionally a **utils** folder with binaries executables, etc.
+  8. optionally a **data** folder with data (binary data, database templates, etc.)
+  9. optionally a **Pipfile** to replace *requirements.txt*
+
+After creating and populating a new GitHub respository (see above), you have to create the *Codecov*
+and *Travis* hooks. To do so, sign into *Travis*, click **Profile -> Settings -> Manage Repositories on Github** and follow the instructions from there (install *Travis* for the new or all repositories). For
+*Codecov*, once you have linked the coverage service with your GitHub, the coverage report upload as
+demonstrated in this repository should work.
+
 ----
 ToDo
 ----
