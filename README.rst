@@ -5,7 +5,7 @@ How to Package A Python3 Project
 .. image:: https://codecov.io/gh/PhilippSchuette/PackagingTest/branch/master/graph/badge.svg
   :target: https://codecov.io/gh/PhilippSchuette/PackagingTest
 
-.. image:: https://travis-ci.com/PhilippSchuette/PackagingTest.svg?token=Yiib7xzboAJu8y3Dk8Qo&branch=master
+.. image:: https://travis-ci.com/PhilippSchuette/PackagingTest.svg?branch=master
    :target: https://travis-ci.com/PhilippSchuette/PackagingTest
 
 .. image:: https://img.shields.io/badge/Language-Python-blue.svg
